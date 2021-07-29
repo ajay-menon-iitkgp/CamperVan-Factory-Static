@@ -6,20 +6,75 @@ body {
 	font-size: 16px;
 }
 
-/*Temp for display boxes*/
-.col-sm-7 {
-	border-radius: 40px;
+.col-sm-3 {
+	border-radius: 30px;
+	max-height: 50%;
+	padding: 3%;
 }
+
 @media screen and (max-width: 768px) {
-	.col-sm-7 {
-		border-radius: 20px !important;
+	.col-sm-3 {
+		border-radius: 40px !important;
+		margin: 5%;
 	}
+	.book-now-cont {
+		top: 30vh !important;
+	}
+}
+
+a.navbar-brand {
+	font-family: 'Poppins'.sans-serif;
+	font-weight: 400;
+	font-size: 38px;
+	line-height: 57px;
+	margin-right: 40px;
+}
+
+a.nav-link {
+	margin-top: 2px;
+	color: #000 !important;
+}
+
+li.nav-item {
+	margin-right: 20px;
+	padding: 0 5px;
+	padding-left: 20px;
+	display: inline-block;
+	border-color: #E7E7E7;
+	border-left-style: solid;
+	border-width: medium;
+	font-size: 24px;
+	line-height: 36px;
+	color: #000 !important;
+}
+
+nav.navbar {
+	position: absolute;
+	top: 5%;
+	z-index: 500;
+	width: 94%;
+	margin-left: 3%;
+	max-height: 10%;
+	padding-left: 2%;
+	padding-right: 4%;
+	border-radius: 20px;
+	align-items: center;
+	font-family: 'Poppins'.sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 36px;
+}
+
+img.d-inline-block {
+	align-items: center;
+	margin-right: 22px;
+	margin-top: 8px;
 }
 
 div.book-now-cont {
 	position: absolute;
 	margin-left: 30%;
-	top: 85%;
+	top: 85vh;
 	width: 40%;
 	height: 18%;
 	text-align: center;
@@ -57,7 +112,7 @@ div.bookingSticky {
   position: sticky;
   top: 100%;
   top: 0;
-  height: 30%;
+  height: 25%;
   text-align: center;
   background-color: #F8F8F8;
   padding: 3% 0 3% 0;
@@ -72,7 +127,7 @@ div.parkBookingSticky {
   position: sticky;
   top: 100%;
   top: 0;
-  height: 30%;
+  height: 25%;
   text-align: center;
   background-color: #F8F8F8;
   padding: 3% 0 3% 0;
@@ -93,95 +148,3 @@ div.parkBookingSticky {
   width: 10px;
   margin: 0 10px !important;
 }
-
-
-.navbar-fixed {
-    top: 0;
-    z-index: 100;
-  	position: fixed;
-    width: 100%;
-}
-
-#body_div {
-	top: 0;
-	position: relative;
-    height: 200px;
-    background-color: green;
-}
-
-#banner {
-	width: 100%;
-	height: 273px;
-  background-color: gray;
-	overflow: hidden;
-}
-
-#nav_bar {
-	border: 0;
-	background-color: #202020;
-	border-radius: 0px;
-	margin-bottom: 0;
-  height: 30px;
-  z-index: 1000;
-}
-
-.nav_links {
-    margin: 0;
-}
-
-.nav_links li {
-	display: inline-block;
-    margin-top: 4px;
-}
-.nav_links li a {
-	padding: 0 15.5px;
-	color: #3498db;
-	text-decoration: none;
-}
-
-/*input, button {
-	font-family: 'Nunito'.sans-serif;
-	font-weight: 700;
-}
-
-.main-div, .loggedin-div {
-	width: 25%;
-	margin: 0px auto;
-	margin-top: 150px;
-	padding: 20px;
-}
-
-.main-div input {
-	display: block;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	background: #fff;
-	padding: 15px;
-	outline: none;
-	width: 100%;
-	margin-bottom: 20px;
-}
-
-.main-div input:focus {
-	border: 1px solid #777;
-}
-
-.main-div button, .loggedin-div button {
-	background: #5d8ffc;
-	color: #fff;
-	border: 1px solid #5d8ffc;
-	border-radius: 5px;
-	padding: 15px;
-	display: block;
-	width: 100%;
-	transition: 1s;
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-}
-
-.main-div button:hover, .loggedin-div button:hover {
-	background: #fff;
-	color: #5d8ffc;
-	border: 1px solid #5d8ffc;
-	cursor: pointer;
-}*/
