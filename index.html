@@ -13,12 +13,20 @@
     <meta name="keywords" content="travel keet, camper van, camping, camping site, camping utilities, caravan, travel, road trip">
 
     <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Date range picker external CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- External Style Sheet CDNs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!--link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"-->
 
     <!-- Icons and Fonts -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -102,26 +110,103 @@
     </div>
 
     <div class="book-now-cont">Book a Caravan</div>
-    <div class="bookingSticky">B</div>
+    <div class="bookingSticky">
+      <div class="container-large" style="padding: 0px; margin: 0px;">
+        <div class="row">
+          <div class="search-icon">
+            <div class="inset-search"><i class="fas fa-map-marker-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
+          </div>
+          <div class="search-field">
+            <input class="location-input" placeholder="From where?" type="text"/>
+          </div>
+          <div class="search-icon">
+            <div class="inset-search"><i class="fas fa-map-marker-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
+          </div>
+          <div class="search-field">
+            <input class="location-input" placeholder="And where to?" type="text"/>
+          </div>
+          <div class="search-icon">
+            <div class="inset-search"><i class="far fa-calendar-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
+          </div>
+          <div class="search-date-field">
+            <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
 
-    <br><br>
+            <script>
+              $(function() {
+                $('input[name="daterange"]').daterangepicker({
+                  opens: 'left'
+                }, function(start, end, label) {
+                  console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                });
+              });
+            </script>
 
-    <div class="container-fluid" style="margin-top: 5%; margin-bottom: 5%;">
+          </div>
+          <div class="search-icon-last">
+            <div class="inset-search"><i class="fas fa-search" style="margin: 1vw 0 0 0;font-size: 3.2vw;font-size: 3.2vw;"></i></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mobileNavbar">
       <div class="row">
-        <div class="col"></div>
-        <div class="col-sm-3" style="background: #55CA9B;"><b style="font-size: 25px;">Lorem Ipsum Dolor</b><p></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-        <div class="col"></div>
-        <div class="col-sm-3" style="background: #55BFAB;"><b style="font-size: 25px;">Id Est Laborum</b><p></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-        <div class="col"></div>
-        <div class="col-sm-3" style="background: #55D983;"><b style="font-size: 25px;">Culpa Qui Officia</b><p></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-        <div class="col"></div>
+        <div class="col">
+          <img src="assets/favicon/favicon.png" width="55" height="50" class="mobileNavbar-icon">
+        </div>
+        <div class="col">
+          <div class="mobileNavbar-icon-div" style="height: 50px;width: 50px;border-radius: 50%;background-color: #1491FF;"></div>
+        </div>
+        <div class="col">
+          <div class="mobileNavbar-icon" style="height: 50px;width: 50px;border-radius: 50%;background-color: #7FD66B;"></div>
+        </div>
+        <div class="col" style="padding-right: 0px !important;">
+          <div class="mobileNavbar-icon" style="height: 50px;width: 50px;border-radius: 50%;background-color: #FFD008;"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a href="#">Home</a>
+        </div>
+        <div class="col">
+          <a href="#">Opt1</a>
+        </div>
+        <div class="col">
+          <a href="#">Opt2</a>
+        </div>
+        <div class="col">
+          <a href="#">Opt3</a>
+        </div>
+      </div>
+      <!--ul class="icons-row-mobileNavbar">
+        <li class="mobileNavbar-icon"><img src="assets/favicon/favicon.png" width="55" height="50" class="mobileNavbar-icon"></li>
+        <li class="mobileNavbar-icon"><div class="mobileNavbar-icon-div" style="height: 50px;width: 50px;border-radius: 50%;background-color: #1491FF;"></div></li>
+        <li class="mobileNavbar-icon"><div class="mobileNavbar-icon" style="height: 50px;width: 50px;border-radius: 50%;background-color: #7FD66B;"></div></li>
+        <li class="mobileNavbar-icon"><div class="mobileNavbar-icon" style="height: 50px;width: 50px;border-radius: 50%;background-color: #FFD008;"></div></li>
+      </ul>
+      <ul class="text-row-mobileNavbar">
+        <li class="mobileNavbar-text">Home</li>
+        <li class="mobileNavbar-text">Opt1</li>
+        <li class="mobileNavbar-text">Opt2</li>
+        <li class="mobileNavbar-text">Opt3</li>
+      </ul-->
+    </div>
+
+    <br><br><br><br>
+
+    <div class="container-fluid" style="margin-bottom: 5%;justify-content: space-between;">
+      <div class="row">
+        <div class="col" style="background: #55CA9B;"></div>
+        <div class="col" style="background: #55BFAB;"></div>
+        <div class="col" style="background: #55D983;"></div>
       </div>
     </div>
 
     <br><br>
 
     <!-- Caravan Park Carousel -->
-    <div id="carouselMainPage" class="carousel slide" data-ride="carousel">
+    <div id="carouselMainPage" class="carousel slide carousel-fade" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselIndicators" data-slide-to="1"></li>
@@ -129,31 +214,58 @@
       </ol>
       <div class="carousel-inner" style="border-radius: 25px;">
         <div class="carousel-item active">
-          <img class="d-block w-100" style="max-height: 81vh" src="assets/img/carousel1.jpg" alt="First slide">
+          <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel1.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" style="max-height: 81vh" src="assets/img/carousel2.jpg" alt="Second slide">
+          <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel2.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" style="max-height: 81vh" src="assets/img/carousel3.jpg" alt="Third slide">
+          <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel3.jpg" alt="Third slide">
         </div>
       </div>
     </div>
 
-    <div class="parkBookingSticky">BOOKING NOW</div>
+    <div class="parkBookingSticky">
+      <div class="container" style="padding: 0px; margin: 0px;">
+        
+        <div class="row">
+          <div class="search-icon">
+            <div class="inset-search"><i class="fas fa-map-marker-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
+          </div>
+          <div class="search-field">
+            <input class="location-input" placeholder="From where?" type="text"/>
+          </div>
+          <div class="search-icon">
+            <div class="inset-search"><i class="fas fa-map-marker-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
+          </div>
+          <div class="search-field">
+            <input class="location-input" placeholder="And where to?" type="text"/>
+          </div>
+          <div class="search-icon">
+            <div class="inset-search"><i class="far fa-calendar-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
+          </div>
+          <div class="search-date-field-l">
+            
+          </div>
+          <div class="search-date-field-r">
+            
+          </div>
+          <div class="search-icon-last">
+            <div class="inset-search"><i class="fas fa-search" style="margin: 1vw 0 0 0;font-size: 3.2vw;font-size: 3.2vw;"></i></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <br><br>
 
-    <div class="container-fluid" style="margin-top: 5%; margin-bottom: 5%;">
-    	<div class="row">
-        <div class="col"></div>
-        <div class="col-sm-3" style="background: #55CA9B;"><b style="font-size: 25px;">Lorem Ipsum Dolor</b><p></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-        <div class="col"></div>
-        <div class="col-sm-3" style="background: #55BFAB;"><b style="font-size: 25px;">Id Est Laborum</b><p></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        <div class="col"></div>
-        <div class="col-sm-3" style="background: #55D983;"><b style="font-size: 25px;">Culpa Qui Officia</b><p></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        <div class="col"></div>
-    	</div>
+    <div class="container-fluid" style="margin-bottom: 5%;justify-content: space-between;">
+      <div class="row">
+        <div class="col" style="background: #55CA9B;"></div>
+        <div class="col" style="background: #55BFAB;"></div>
+        <div class="col" style="background: #55D983;margin-right: 2vw !important;"></div>
+      </div>
     </div>
 
     <br><br>
