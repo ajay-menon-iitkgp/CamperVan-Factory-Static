@@ -1,10 +1,13 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
 body {
 	background: #fff;
-	padding: 0px;
-	margin: 0px;
 	font-family: 'Poppins'.sans-serif;
 	font-size: 16px;
-	width: 100vw;
 }
 
 .col {
@@ -93,7 +96,7 @@ div.search-field {
 	z-index: 800;
 }
 
-div.search-date-field-l {
+/*div.search-date-field-l {
 	margin-left: -3vw;
 	margin-top: 4vh;
 	width: 11vw;
@@ -101,7 +104,7 @@ div.search-date-field-l {
   	background: #fff;
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	z-index: 800;
-}
+}*/
 
 div.search-date-field {
 	margin-left: -3vw;
@@ -113,9 +116,17 @@ div.search-date-field {
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	z-index: 800;
 	font-size: 18px;
+/*	padding: 12.5px 5px 0px 5px;*/
 }
 
-div.search-date-field-r {
+input.date-input {
+	width: 14vw;
+	margin-top: 1.5vh;
+	margin-left: 0vw;
+	height: 5vh;
+}
+
+/*div.search-date-field-r {
 	margin-right: -3vw;
 	margin-top: 4vh;
 	width: 11vw;
@@ -123,7 +134,7 @@ div.search-date-field-r {
   	background: #fff;
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	z-index: 800;
-}
+}*/
 
 input.location-input {
   outline: 0;
@@ -136,7 +147,11 @@ input.location-input {
   font-size: 18px;
 }
 
-/*.location-input:focus ~ div.search-icon {
+/*input.location-input:focus {
+	color: #C4C4C4;
+}
+
+.location-input:focus ~ div.search-icon {
  	margin-left: 2vw;
 }*/
 
@@ -187,7 +202,7 @@ li.nav-item {
 nav.navbar {
 	position: fixed;
 	top: 0%;
-	z-index: 1000;
+	z-index: 1001;
 	width: 94%;
 	margin-left: 3%;
 	height: 11vh;
@@ -311,4 +326,13 @@ div.parkBookingSticky {
   height: 10px;
   width: 10px;
   margin: 0 10px !important;
+}
+
+div.daterangepicker {
+/*	background-color: #55D983;
+	color: white;*/
+	font-family: 'Poppins'.sans-serif;
+/*	font-size: 10px;*/
+	z-index: 999;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }

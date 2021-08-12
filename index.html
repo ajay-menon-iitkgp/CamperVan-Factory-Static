@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Page Title -->
@@ -14,8 +14,13 @@
 
     <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
 
-    <!-- Date range picker external CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Bootstrap JS CDN @ AA:cheated - may be slower but going to try singl jquery load at top -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Date range picker external CDN -->    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -44,7 +49,7 @@
   </head>
 
   <body>
-    <div class="outerClass">
+    <!--div class="outerClass"-->
       <div class="navCont">
         <nav class="navbar navbar-expand-xl navbar-light bg-light">
           <a class="navbar-brand" href="#" style="align-items: center;">
@@ -75,10 +80,10 @@
             <li class="servProvButton">Become a Service Provider</li>
           </div>
         
-          <a href="#social" alt="Login" style="margin-left: 20px;"><i class="fas fa-hiking"></i></a>
+          <a href="#social" alt="Login" style="margin-left: 20px;"><i class="fas fa-hiking" style="color: #000;"></i></a>
         </nav>
       </div>
-    </div>
+    <!--/div-->
 
   <main>
     <!-- Landing Page Carousel -->
@@ -93,7 +98,7 @@
           <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel1.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel2.jpg" alt="Second slide">
+          <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel4.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
           <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel3.jpg" alt="Third slide">
@@ -129,16 +134,34 @@
             <div class="inset-search"><i class="far fa-calendar-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
           </div>
           <div class="search-date-field">
-            <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+            <!--input type="text" name="daterange" value="01/01/2018 - 01/15/2018" /-->
+            <input type="text" name="datefilter" value="" class="date-input"/>
 
             <script>
               $(function() {
+                $('input[name="datefilter"]').daterangepicker({
+//                    opens: "left",
+//                    showDropdowns: true,
+//                    drops: "up",
+                    autoUpdateInput: false,
+                    locale: {
+                        cancelLabel: 'Clear'
+                    }
+                });
+                $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+                    $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+                });
+                $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+                    $(this).val('');
+                });
+              });
+              /*$(function() {
                 $('input[name="daterange"]').daterangepicker({
                   opens: 'left'
                 }, function(start, end, label) {
                   console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
                 });
-              });
+              });*/
             </script>
 
           </div>
@@ -226,8 +249,7 @@
     </div>
 
     <div class="parkBookingSticky">
-      <div class="container" style="padding: 0px; margin: 0px;">
-        
+      <div class="container-large" style="padding: 0px; margin: 0px;">
         <div class="row">
           <div class="search-icon">
             <div class="inset-search"><i class="fas fa-map-marker-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
@@ -244,18 +266,41 @@
           <div class="search-icon">
             <div class="inset-search"><i class="far fa-calendar-alt" style="margin: 1vw 0 0 0;font-size: 3.5vw;font-size: 3.5vw;"></i></div>
           </div>
-          <div class="search-date-field-l">
-            
-          </div>
-          <div class="search-date-field-r">
-            
+          <div class="search-date-field">
+            <!--input type="text" name="daterange" value="01/01/2018 - 01/15/2018" /-->
+            <input type="text" name="datefilter" value="" class="date-input"/>
+
+            <script>
+              $(function() {
+                $('input[name="datefilter"]').daterangepicker({
+                    autoUpdateInput: false,
+                    locale: {
+                        cancelLabel: 'Clear'
+                    }
+                });
+                $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+                    $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+                });
+                $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+                    $(this).val('');
+                });
+              });
+              /*$(function() {
+                $('input[name="daterange"]').daterangepicker({
+                  opens: 'left'
+                }, function(start, end, label) {
+                  console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                });
+              });*/
+            </script>
+
           </div>
           <div class="search-icon-last">
             <div class="inset-search"><i class="fas fa-search" style="margin: 1vw 0 0 0;font-size: 3.2vw;font-size: 3.2vw;"></i></div>
           </div>
         </div>
-
       </div>
+
     </div>
 
     <br><br>
@@ -272,10 +317,5 @@
   </main>
     <footer-component></footer-component>
 
-    <!-- Bootstrap JS CDN @ File End -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
