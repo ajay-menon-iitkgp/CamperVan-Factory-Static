@@ -6,40 +6,65 @@ class Navbar extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <style>
+        .col {
+          border-radius: 30px;
+          height: 30vw;
+          width: 30vw;
+          padding: 3%;
+          margin: 0% 1% 0% 2%;
+        }
+
         li.servProvButton {
           float: right;
           border-style: solid;
           border-radius: 20px;
           padding: 5px 20px;
-          margin: 1% 0% 1% 15%;
+          margin: 1% 0% 1% 10vw;
           text-align: center;
         }
 
+        li.servProvButton:hover {
+          background-color: #55BFAB;
+          color: #fff;
+          border-style: solid;
+          border-radius: 20px;
+          border-color: #000;
+        }
+
         @media screen and (max-width: 768px) {
-          .book-now-cont {
-            top: 54vh !important;
-            font-size: 30px !important;
-            width: 60% !important;
-            margin-left: 20% !important;
-          }
-          div.bookingSticky {
-            height: 40vh !important;
-          }
-          img.d-block {
-            height: 60vh !important;
+          .col {
+            border-radius: 40px !important;
+            margin: 5%;
           }
         }
 
-        @media screen and (max-width: 992) {
+        @media screen and (max-width: 1399) {
           li.servProvButton {
-            margin: 2% 0% 1% 15%;
+            margin: 1% 0% 1% 3vw;
           }
+        }
+
+        div.mobileNavbar {
+          display: none;
+          position: fixed;
+          bottom: -1.5vh;
+          padding: 1vh 10vw;
+          height: 14vh;
+          display: inline !important;
+          justify-content: space-between;
+          z-index: 1200;
+          background-color: #fff;
+          width: 100vw;
+          justify-content: space-between;
+          border-top-right-radius: 25px;
+          border-top-left-radius: 25px;
+          box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.25);
         }
 
         a.navbar-brand {
           font-family: 'Poppins'.sans-serif;
           font-weight: 400;
-          font-size: calc(1vw + 1vh + 50%);/*38px;*/
+          font-size: calc(1vw + 1vh + 50%);/*38*/
           line-height: 57px;
           margin-right: 40px;
         }
@@ -47,25 +72,28 @@ class Navbar extends HTMLElement {
         a.nav-link {
           margin-top: 2px;
           color: #000 !important;
+          padding: 0px;
         }
 
         li.nav-item {
           margin-right: 20px;
           /*padding: 0 5px;*/
-          padding-left: 20px;
+        /*  padding-left: 20px;*/
+          padding: 0px 0px 0px 20px;
           display: inline-block;
           border-color: #E7E7E7;
           border-left-style: solid;
-          border-width: medium;
-          font-size: 24px;
-          line-height: 36px;
+          border-width: 5px;
+          font-size: 24px;/*
+          line-height: 36px;*/
           color: #fff !important;
         }
 
         nav.navbar {
           position: fixed;
           top: 0%;
-          z-index: 500;
+          transition: top 0.7s;
+          z-index: 1001;
           width: 94%;
           margin-left: 3%;
           height: 11vh;
@@ -73,18 +101,17 @@ class Navbar extends HTMLElement {
           padding-right: 4%;
           border-bottom-left-radius: 20px;
           border-bottom-right-radius: 20px;
-        /*  border-radius: 20px;*/
           align-items: center;
           font-family: 'Poppins'.sans-serif;
           font-weight: 400;
-          font-size: 24px;
-          line-height: 36px;
-          /*height: auto;*/
+          font-size: 24px;/*
+          line-height: 36px;*/
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
 
         div.navCont {
           position: sticky;
-          z-index: 500;
+          z-index: 1000;
         }
 
         @media screen and (max-width: 768px) {
@@ -98,64 +125,46 @@ class Navbar extends HTMLElement {
             border-bottom-left-radius: 0px;
             border-bottom-right-radius: 0px;
             width: 100%;
+          } 
+        }
+
+        @media screen and (min-width: 769px) {
+          div.mobileNavbar {
+            display: none !important;
           }
         }
 
-        img.d-inline-block {
+        @media screen and (min-width: 769px) {
+          div.MobNav {
+            display: none !important;
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          body {
+            padding-bottom: 7vh;
+          }
+        }
+
+        div.MobNav {
+          display: fixed;
+        }
+
+        .navbar-2 {
+          padding: 1vh 4vw 1.5vh 8vw;
           align-items: center;
-          margin-right: 22px;
-          margin-top: 8px;
+          filter: drop-shadow(0px -4px 4px rgba(0, 0, 0, 0.25));
         }
 
-        div.book-now-cont {
-          position: absolute;
-          margin-left: 33%;
-          top: 75vh;
-          height: 12vh;
-          width: 34%;
-          text-align: center;
-          background-color: #F8F8F8;
-          padding: 10px;
-          text-align: center;
-          align-items: center;
-          font-size: 36px;
-          font-weight: 500;
-          z-index: 250;
-          border-radius: 20px;
-          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        }
-
-        div.bookingSticky {
-          /*position: -webkit-sticky;
-          position: sticky;*/
-          top: 100%;
-          top: 0;
-          height: 19vh;
-          text-align: center;
-          background-color: #F8F8F8;
-          padding: 3% 0 3% 0;
-          font-size: 30px;
-          z-index: 200;
-          box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .carousel-indicators {
-          position: absolute;
-          top: 75%;
-        }
-
-        .carousel-indicators > li {
-          border-radius: 100%;
-          height: 10px;
-          width: 10px;
-          margin: 0 10px !important;
+        .navbar-2 li.nav-item {
+          border: none;
         }
       </style>
-      <navbar>
-        <nav class="navbar navbar-expand-xl navbar-light bg-light">
-          <a class="navbar-brand" href="#" style="align-items: center;">
-            <img src="assets/favicon/favicon.png" width="55" height="50" class="d-inline-block align-top" alt="travelkeet-logo">Travelkeet</a>
-          <!--a class="navbar-brand" href="#">Travelkeet</a-->
+      <div class="navCont">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light" id="navbar">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/favicon/favicon.png" width="55" height="50" class="d-inline-block align-top" alt="travelkeet-logo">Travelkeet
+          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -165,7 +174,7 @@ class Navbar extends HTMLElement {
                 <a class="nav-link" href="caravans.html">Caravans</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Caravan Parks</a>
+                <a class="nav-link" href="campersite.html">Caravan Parks</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -177,49 +186,55 @@ class Navbar extends HTMLElement {
                   <a class="dropdown-item" href="#">Utilities</a>
                 </div>
               </li>
+              <a href="#">
+                <li class="servProvButton">Become a Service Provider</li>
+              </a>
             </ul>
-            <li class="servProvButton">Become a Service Provider</li>
-        </div>
-        
-        <a href="#social" alt="Login" style="margin-left: 20px;"><i class="fas fa-hiking"></i></a>
+          </div>
+          <a href="#social" alt="Login" style="margin-left: 20px;"><i class="fas fa-hiking" style="color: #000;"></i></a>
         </nav>
-        </div>
-    </div>
-
-    <main>
-    <!-- Landing Page Carousel -->
-    <div id="carouselMainPage" class="carousel slide carousel-fade" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" style="border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
-        <div class="carousel-item active">
-          <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel1.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel2.jpg" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" style="height: 81vh; object-fit: cover;" src="assets/img/carousel3.jpg" alt="Third slide">
-        </div>
       </div>
-      <!--a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev" onclick="$('#carouselMainPage').carousel('prev')">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next" onclick="$('#carouselMainPage').carousel('next')">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a-->
-    </div>
 
-    <div class="book-now-cont">Book a Caravan</div>
-
-    <div class="bookingSticky">BOOKING NOW</div>
-      </navbar>
-
+      <div class="MobNav">
+        <nav class="navbar-2 navbar-expand fixed-bottom navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="float: right;">
+            <span class="navbar-toggler-icon" style="float: right;"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse" style="justify-content: space-between;float: center;">
+            <a class="navbar-brand" href="index.html" style="margin: 0px !important;padding: 0 !important;">
+              <img src="assets/favicon/favicon.png" width="50" height="45" class="d-inline-block align-top" alt="travelkeet-logo" style="margin-right: 0 !important;">
+            </a>
+            <ul class="navbar-nav mr-auto" style="margin: 0 !important;padding: 0 !important;">
+              <li class="nav-item" style="margin: 1vh 1vw !important;padding: 0 !important;">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-rv" style="font-size: 8vw;"></i>
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item" style="margin: 1vh 1vw !important;padding: 0 !important;">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-campground" style="font-size: 8vw;"></i>
+                </a>
+              </li>
+              <li class="nav-item" style="margin: 1vh 1vw !important;padding: 0 !important;">
+                <a class="nav-link" href="#">
+                  <i class="far fa-university" style="font-size: 8vw;"></i>
+                </a>
+              </li>
+              <li class="nav-item dropup" style="margin: 1vh 1vw !important;padding: 0 !important;">
+                <a class="nav-link dropdown-toggle" href="https://getbootstrap.com/" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-utensils" style="font-size: 8vw;"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdown10">
+                  <a class="dropdown-item" href="#">Food</a>
+                  <a class="dropdown-item" href="#">Beverage</a>
+                  <a class="dropdown-item" href="#">Utilities</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     `;
   }
 }

@@ -27,6 +27,14 @@ li.servProvButton {
 	text-align: center;
 }
 
+li.servProvButton:hover {
+	background-color: #55BFAB;
+	color: #fff;
+	border-style: solid;
+	border-radius: 20px;
+	border-color: #000;
+}
+
 @media screen and (max-width: 768px) {
 	.col {
 		border-radius: 40px !important;
@@ -286,4 +294,18 @@ div.campervan-tiles {
 	height: 37vh;
 	border-radius: 30px;
 	position: relative;
+}
+
+.bookmark-link:hover {
+	color: #0C7FC6 !important;
+}
+
+div.bookmark:hover {
+	top: -20px !important;
+	transition: top 1s;
+}
+
+.gallery-link:hover {
+	color: grey;
+	transition: color 1s;
 }
