@@ -44,7 +44,7 @@ class Navbar extends HTMLElement {
           }
         }
 
-        div.mobileNavbar {
+        /*div.mobileNavbar {
           display: none;
           position: fixed;
           bottom: -1.5vh;
@@ -59,7 +59,7 @@ class Navbar extends HTMLElement {
           border-top-right-radius: 25px;
           border-top-left-radius: 25px;
           box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.25);
-        }
+        }*/
 
         a.navbar-brand {
           font-family: 'Poppins'.sans-serif;
@@ -77,19 +77,17 @@ class Navbar extends HTMLElement {
 
         li.nav-item {
           margin-right: 20px;
-          /*padding: 0 5px;*/
-        /*  padding-left: 20px;*/
           padding: 0px 0px 0px 20px;
           display: inline-block;
           border-color: #E7E7E7;
           border-left-style: solid;
           border-width: 5px;
-          font-size: 24px;/*
-          line-height: 36px;*/
+          font-size: 24px;
           color: #fff !important;
         }
 
         nav.navbar {
+          display: flex;
           position: fixed;
           top: 0%;
           transition: top 0.7s;
@@ -104,8 +102,7 @@ class Navbar extends HTMLElement {
           align-items: center;
           font-family: 'Poppins'.sans-serif;
           font-weight: 400;
-          font-size: 24px;/*
-          line-height: 36px;*/
+          font-size: 24px;
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
 
@@ -114,9 +111,9 @@ class Navbar extends HTMLElement {
           z-index: 1000;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 576px) {
           nav.navbar {
-            display: none;
+            display: none !important;
             position: fixed;
             top: 89vh;
             height: 11vh;
@@ -125,35 +122,27 @@ class Navbar extends HTMLElement {
             border-bottom-left-radius: 0px;
             border-bottom-right-radius: 0px;
             width: 100%;
-          } 
+          }
         }
 
-        @media screen and (min-width: 769px) {
-          div.mobileNavbar {
+        @media screen and (min-width: 577px) {
+          nav.navbar-2 {
             display: none !important;
           }
         }
 
-        @media screen and (min-width: 769px) {
-          div.MobNav {
-            display: none !important;
-          }
-        }
-
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 576px) {
           body {
             padding-bottom: 7vh;
           }
         }
 
-        div.MobNav {
-          display: fixed;
-        }
-
         .navbar-2 {
-          padding: 1vh 4vw 1.5vh 8vw;
+          padding: 1vh 4vw 0.5vh 12vw;
           align-items: center;
           filter: drop-shadow(0px -4px 4px rgba(0, 0, 0, 0.25));
+          border-top-right-radius: 25px;
+          border-top-left-radius: 25px;
         }
 
         .navbar-2 li.nav-item {
@@ -200,9 +189,9 @@ class Navbar extends HTMLElement {
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="float: right;">
             <span class="navbar-toggler-icon" style="float: right;"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse" style="justify-content: space-between;float: center;">
+          <div class="collapse navbar-collapse" id="navbarCollapse" style="float: center;">
             <a class="navbar-brand" href="index.html" style="margin: 0px !important;padding: 0 !important;">
-              <img src="assets/favicon/favicon.png" width="50" height="45" class="d-inline-block align-top" alt="travelkeet-logo" style="margin-right: 0 !important;">
+              <img src="assets/favicon/favicon.png" width="34vw" height="34vh" class="d-inline-block align-top" alt="travelkeet-logo" style="margin-right: 4vw !important;">
             </a>
             <ul class="navbar-nav mr-auto" style="margin: 0 !important;padding: 0 !important;">
               <li class="nav-item" style="margin: 1vh 1vw !important;padding: 0 !important;">

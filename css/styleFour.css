@@ -21,6 +21,7 @@ body {
 	}
 	div.bookingSticky {
 		height: 50vh !important;
+		padding: 1.5vh 0 5vh 0vw;
 	}
 	img.d-block {
 		height: 50vh !important;
