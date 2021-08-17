@@ -64,11 +64,12 @@ class SearchBar extends HTMLElement {
           margin-top: 1.5vh;
           margin-left: 0vw;
           height: 5vh;
+          text-align: center;
         }
 
         input.location-input {
           outline: 0;
-          border-width: 0 0 2px;
+          border: none;
           border-color: #000;
           height: 6vh;
           width: 14vw;
@@ -98,7 +99,7 @@ class SearchBar extends HTMLElement {
         button.mob-search {
           font-family: 'Poppins'.sans-serif;
           font-weight: 500;
-          background: #55D983;
+          background: #55C6A1;
           color: white;
           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
           border-radius: 20px;
@@ -151,8 +152,12 @@ class SearchBar extends HTMLElement {
           text-align: center;
         }
 
+        input.mob-date-input:focus {
+          border: none;
+        }
+
         input.mob-location-input {
-          width: 100%;
+          width: 90%;
           height: 5vh;
           border: none;
           font-size: 65%;
@@ -185,7 +190,7 @@ class SearchBar extends HTMLElement {
           </div>
           <div class="search-date-field">
             <!--input type="text" name="daterange" value="01/01/2018 - 01/15/2018" /-->
-            <input type="text" name="datefilter" value="" class="date-input"/>
+            <input type="text" name="datefilter" value="From date | To date" class="date-input"/>
 
             <script>
               $(function() {

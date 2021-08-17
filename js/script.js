@@ -9,3 +9,7 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 }
+
+// Blog tiles of equal height
+var cw = $('.blog-tile').width();
+$('.blog-tile').css({'height':cw+'px'});
